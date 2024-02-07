@@ -1,14 +1,19 @@
 package com.group.libraryapp.controller.calculator;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.group.libraryapp.dto.calculator.request.CaculatorAddReqeust;
+import com.group.libraryapp.dto.calculator.request.CalculatorMultiplyRequest;
+import org.springframework.web.bind.annotation.*;
 
 @RestController // API가 들어오는 시작점
 public class CalculatorController {
 
     @GetMapping("/add")
-    public int addTowNumbers(@RequestParam int number1, @RequestParam int number2) {
-        return number1 + number2;
+    public int addTowNumbers(CaculatorAddReqeust request) {
+        return request.getNumber1() + request.getNumber2();
+    }
+
+    @PostMapping("/multiply")
+    public int multiplyTwoNumbers(@RequestBody CalculatorMultiplyRequest request) {
+        return request.getNumber1() * request.getNumber2();
     }
 }

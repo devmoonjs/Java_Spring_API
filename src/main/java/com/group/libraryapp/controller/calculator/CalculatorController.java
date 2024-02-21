@@ -1,6 +1,6 @@
 package com.group.libraryapp.controller.calculator;
 
-import com.group.libraryapp.dto.calculator.request.CaculatorAddReqeust;
+import com.group.libraryapp.dto.calculator.request.CalculatorAddRequest;
 import com.group.libraryapp.dto.calculator.request.CalculatorMultiplyRequest;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 public class CalculatorController {
 
     @GetMapping("/add")
-    public int addTowNumbers(CaculatorAddReqeust request) {
+    public int addTowNumbers(CalculatorAddRequest request) {
         return request.getNumber1() + request.getNumber2();
     }
 

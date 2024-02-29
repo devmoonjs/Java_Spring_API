@@ -5,6 +5,7 @@ import com.group.libraryapp.dto.user.request.UserUpdateRequest;
 import com.group.libraryapp.dto.user.response.UserResponse;
 import com.group.libraryapp.repository.user.UserRepository;
 import com.group.libraryapp.service.fruit.FruitService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -15,11 +16,10 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final FruitService fruitService;
 
+    @Autowired
     public UserService(UserRepository userRepository, @Qualifier("appleService") FruitService fruitService) {
         this.userRepository = userRepository;
-        this.fruitService = fruitService;
     }
 
     public void saveUser(UserCreateRequest request) {
